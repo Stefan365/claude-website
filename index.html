@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ahoj, svet</title>
+  <style>
+    :root { --ink: #3b2a1a; --paper: rgba(250, 240, 225, 0.88); --accent: #8a5a2b; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background: #2a1f15 url("maharaj.jpg") center / contain no-repeat fixed;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 16px;
+    }
+    main {
+      background: var(--paper);
+      max-width: 560px;
+      width: 100%;
+      padding: 20px 28px;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+      text-align: center;
+      margin-bottom: 2vh;
+    }
+    h1 { margin: 0 0 8px; font-size: 2rem; color: var(--accent); }
+    p { margin: 6px 0; line-height: 1.5; }
+    footer { margin-top: 12px; font-size: 0.8rem; opacity: 0.7; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Ahoj, svet!</h1>
+    <p>Toto je moja prvá jednoduchá stránka. Žiadne zložitosti — len pozdrav do sveta a jedna myšlienka na zamyslenie.</p>
+    <p>Skôr než začneš meniť svet, pozri sa, kto sa v ňom odráža.</p>
+    <footer>claude-website · vytvorené s pomocou Claude Code</footer>
+  </main>
+</body>
+</html>
