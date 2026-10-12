@@ -31,8 +31,13 @@ Repozitár:    https://github.com/Stefan365/claude-website
       aj obrázok maharaj.jpg vracia 200. Stránka beží cez HTTPS.
    - Ďalšie zmeny: stačí commit + git push do main, Pages sa prebuildí sám.
 
-4. Spotreba tokenov (paušál Pro)
-   - 5-hodinový limit: pred úlohou 1 % -> po úlohe 2 %  => cca 1 % paušálu.
+4. Spotreba tokenov (paušál Pro) – celková, vrátane diskusie o možnostiach publikácie
+   - 5-hodinový limit: pred úlohou 1 % -> na konci 2 %  => cca 1 % paušálu.
    - Týždenný limit: 5 % -> 5 %  => pod 1 % (zaokrúhlené, nezmenilo sa).
-   - Kontext konverzácie: ~62 tis. tokenov (6 % okna), väčšinu tvoria
-     systémové definície nástrojov, samotná práca cca 8 tis.
+   - Kontext konverzácie: ~65 tis. tokenov (7 % okna); väčšinu tvoria
+     systémové definície nástrojov (~58 tis.), samotná práca a rozhovor ~8 tis.
+   - Pozn.: percentá plánu hlási aplikácia zaokrúhlené na celé čísla.
+
+5. Záver
+   - Zvážené alternatívy: Netlify, Vercel, Cloudflare Pages, vlastná doména, VPS.
+   - Rozhodnutie: ostáva GitHub Pages (zadarmo, bez ďalších účtov a platieb).
