@@ -1,0 +1,38 @@
+POSTUP – claude-website
+=======================
+Verejná URL:  https://stefan365.github.io/claude-website/
+Repozitár:    https://github.com/Stefan365/claude-website
+
+1. Príprava
+   - V adresári claude-website bol obrázok maharaj.jpg (citát Nisargadatta).
+   - Stránka = jediný súbor index.html (čisté HTML + CSS, bez build nástrojov).
+     Obrázok je pozadie (celý, nie orezaný, aby bol citát čitateľný),
+     text „Ahoj, svet!“ je v polopriehľadnej karte v dolnej časti.
+   - git init + commit.
+
+2. Prístup na GitHub
+   - SSH kľúč pre účet Stefan365 fungoval, ale na vytvorenie repa cez API
+     treba nástroj gh (GitHub CLI), ktorý nebol nainštalovaný.
+   - gh som nainštaloval bez sudo: stiahol oficiálny binárny súbor
+     z github.com/cli/cli/releases (v2.102.0) do ~/.local/bin.
+   - Prihlásenie: gh auth login --web (device flow) – používateľ zadal
+     jednorazový kód na github.com/login/device.
+
+3. Nasadenie (deployment) – GitHub Pages
+   a) Vytvorenie verejného repa a push v jednom kroku:
+        gh repo create claude-website --public --source=. --remote=origin --push
+   b) Zapnutie GitHub Pages cez REST API (zdroj = vetva main, koreň /):
+        gh api -X POST repos/Stefan365/claude-website/pages \
+          -f "source[branch]=main" -f "source[path]=/"
+   c) GitHub automaticky spustil build (Actions „pages build and deployment“).
+      Stav som sledoval cez  gh api repos/Stefan365/claude-website/pages
+      (building -> built), trvalo to cca 1 minútu.
+   d) Overenie: curl na URL vrátil HTTP 200, stránka obsahuje „Ahoj, svet!“,
+      aj obrázok maharaj.jpg vracia 200. Stránka beží cez HTTPS.
+   - Ďalšie zmeny: stačí commit + git push do main, Pages sa prebuildí sám.
+
+4. Spotreba tokenov (paušál Pro)
+   - 5-hodinový limit: pred úlohou 1 % -> po úlohe 2 %  => cca 1 % paušálu.
+   - Týždenný limit: 5 % -> 5 %  => pod 1 % (zaokrúhlené, nezmenilo sa).
+   - Kontext konverzácie: ~62 tis. tokenov (6 % okna), väčšinu tvoria
+     systémové definície nástrojov, samotná práca cca 8 tis.
